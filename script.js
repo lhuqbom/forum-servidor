@@ -1,68 +1,64 @@
 function curtir(botao) {
-    let numero = parseInt(botao.innerText.match(/\d+/)[0]);
-    
-    numero++;
-    
-    botao.innerText = `❤️ Curtir (${numero})`;
-    
+    let count = parseInt(botao.dataset.curtidas || 0) + 1;
+    botao.dataset.curtidas = count;
+    botao.innerHTML = `❤️ Curtir (${count})`;
     salvarPosts();
 }
 
 function criarTopico() {
-    let nome = document.getElementById("nome").value;
-    let categoria = document.getElementById("categoria").value;
-    let titulo = document.getElementById("titulo").value;
-    let mensagem = document.getElementById("mensagem").value;
-    
-    if (nome === "" || titulo === "" || mensagem === "") {
-        alert("Preencha tudo!");
+    const nome = document.getElementById("nome").value.trim();
+    const categoria = document.getElementById("categoria").value;
+    const titulo = document.getElementById("titulo").value.trim();
+    const mensagem = document.getElementById("mensagem").value.trim();
+
+    if (!nome || !titulo || !mensagem) {
+        alert("❌ Preencha todos os campos!");
         return;
     }
-    
-    let post = document.createElement("div");
+
+    const post = document.createElement("div");
     post.classList.add("topico");
-    
     post.innerHTML = `
         <h3>${categoria} - ${titulo}</h3>
-        <small>Por: ${nome}</small>
+        <small>Por: ${nome} • Agora</small>
         <p>${mensagem}</p>
         
-        <button onclick="curtir(this)">
+        <button class="btn-curtir" onclick="curtir(this)" data-curtidas="0">
             ❤️ Curtir (0)
         </button>
-        
-        <button onclick="this.parentElement.remove(); salvarPosts()">
+        <button class="btn-apagar" onclick="apagarPost(this)">
             🗑️ Apagar
         </button>
     `;
-    
-    document.querySelector(".forum").appendChild(post);
-    
-    // Limpa os campos do formulário após postar
+
+    document.getElementById("forum").prepend(post); // novo no topo
+
+    // Limpar formulário
     document.getElementById("nome").value = "";
     document.getElementById("titulo").value = "";
     document.getElementById("mensagem").value = "";
-    
+
     salvarPosts();
 }
 
-// ADICIONADO: Função que salva os posts no navegador
+function apagarPost(botao) {
+    if (confirm("Tem certeza que quer apagar este tópico?")) {
+        botao.parentElement.remove();
+        salvarPosts();
+    }
+}
+
 function salvarPosts() {
-    let forum = document.querySelector(".forum");
-    if (forum) {
-        localStorage.setItem("meuForumPosts", forum.innerHTML);
-    }
+    const forum = document.getElementById("forum");
+    localStorage.setItem("meuForumPosts", forum.innerHTML);
 }
 
-// ADICIONADO: Função que carrega os posts quando a página atualiza
 function carregarPosts() {
-    let postsSalvos = localStorage.getItem("meuForumPosts");
-    let forum = document.querySelector(".forum");
-    if (postsSalvos && forum) {
-        forum.innerHTML = postsSalvos;
+    const postsSalvos = localStorage.getItem("meuForumPosts");
+    if (postsSalvos) {
+        document.getElementById("forum").innerHTML = postsSalvos;
     }
 }
 
-window.onload = function () {
-    carregarPosts();
-};
+// Carregar ao iniciar
+window.onload = carregarPosts;
