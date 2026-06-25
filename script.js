@@ -1,6 +1,4 @@
 function curtir(botao) {
-    // CORRIGIDO: Agora pega o texto de dentro do botão (botao.innerText) 
-    // em vez da variável 'texto' que não existia.
     let numero = parseInt(botao.innerText.match(/\d+/)[0]);
     
     numero++;
@@ -46,6 +44,23 @@ function criarTopico() {
     document.getElementById("mensagem").value = "";
     
     salvarPosts();
+}
+
+// ADICIONADO: Função que salva os posts no navegador
+function salvarPosts() {
+    let forum = document.querySelector(".forum");
+    if (forum) {
+        localStorage.setItem("meuForumPosts", forum.innerHTML);
+    }
+}
+
+// ADICIONADO: Função que carrega os posts quando a página atualiza
+function carregarPosts() {
+    let postsSalvos = localStorage.getItem("meuForumPosts");
+    let forum = document.querySelector(".forum");
+    if (postsSalvos && forum) {
+        forum.innerHTML = postsSalvos;
+    }
 }
 
 window.onload = function () {
