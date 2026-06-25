@@ -89,3 +89,33 @@ footer {
     color: #5865F2;
     font-weight: bold;
 }
+.topico {
+    background: #222;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 10px;
+    border-left: 4px solid #5865F2;
+}
+
+.topico h3 {
+    margin-top: 0;
+}
+
+.topico small {
+    color: #5865F2;
+    font-weight: bold;
+}
+
+.topico button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #5865F2;
+    color: white;
+}
+
+.topico button:hover {
+    background: #4752C4;
+}
