@@ -9,16 +9,18 @@
     <link rel="icon" href="imagerushmc.png">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+
+<body id="topo">
 
 <header>
     <h1>🎮 RushMC Fórum</h1>
 </header>
 
 <nav>
-    <a href="#">Início</a>
-    <a href="#">Categorias</a>
-    <a href="#">Criar tópico</a>
+    <a href="#topo">🏠 Início</a>
+    <a href="#loja">🛒 Loja</a>
+    <a href="#servidor">🎮 Servidor</a>
+    <a href="#criar">✍️ Criar tópico</a>
 
     <a class="discord-btn" href="https://discord.gg/ZV5S9B4mPf" target="_blank">
         🎮 Entrar no Discord
@@ -27,13 +29,34 @@
 
 <main>
 
-    <section class="criar-topico">
+    <section id="servidor">
+        <h2>🎮 Informações do Servidor</h2>
+
+        <p><strong>IP:</strong> jogar.rushmc.com</p>
+        <p><strong>Versão:</strong> 1.8 até 1.21</p>
+        <p><strong>Modo:</strong> Survival, BedWars e muito mais!</p>
+    </section>
+
+    <section id="loja">
+        <h2>🛒 Loja RushMC</h2>
+
+        <p>⭐ VIP</p>
+        <p>💰 Cash</p>
+        <p>🔑 Chaves</p>
+        <p>🏆 Patentes</p>
+
+        <a class="discord-btn" href="https://discord.gg/ZV5S9B4mPf" target="_blank">
+            🛒 Comprar
+        </a>
+    </section>
+
+    <section id="criar" class="criar-topico">
         <h2>Criar tópico</h2>
 
         <input type="text" id="nome" placeholder="Seu nome">
 
         <select id="categoria">
-            <option value="🟥 suporte">🟥 Suporte</option>
+            <option value=" 🟥 suporte"> 🟥 suporte</option>
             <option value="💬 Geral">💬 Geral</option>
             <option value="🆘 Ajuda">🆘 Ajuda</option>
         </select>
@@ -49,7 +72,7 @@
         <h2>Últimos tópicos</h2>
 
         <div class="topico">
-            <h3>🎮 Bem-vindo!</h3>
+            <h3>🎉 Bem-vindo!</h3>
             <small>Por: Sistema</small>
             <p>Seu fórum está funcionando 🔥</p>
         </div>
