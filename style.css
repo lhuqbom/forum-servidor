@@ -21,3 +21,27 @@ header {
 .categoria:hover {
     background: #444;
 }
+header{
+    text-align:center;
+    padding:30px;
+    background:#2a2a2a;
+}
+
+.categoria{
+    background:#333;
+    margin:20px;
+    padding:15px;
+    border-radius:10px;
+}
+
+.botao{
+    display:block;
+    width:200px;
+    margin:20px auto;
+    text-align:center;
+    background:#5865F2;
+    color:white;
+    padding:10px;
+    text-decoration:none;
+    border-radius:10px;
+}
