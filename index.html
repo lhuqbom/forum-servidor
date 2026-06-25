@@ -6,7 +6,7 @@
     <title>Meu Fórum</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Estilos básicos caso você queira testar direto (baseado nas suas fotos) */
+        /* Estilos baseados nas suas fotos */
         html {
             scroll-behavior: smooth;
         }
@@ -19,13 +19,94 @@
         }
         header {
             background-color: #1a1a1a;
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Fórum</title>
-    <link rel="stylesheet" href="style.css">
+            text-align: center;
+            padding: 20px 0;
+        }
+        header h1 {
+            margin: 0 0 15px 0;
+        }
+        nav a {
+            color: #8a8a8a;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 14px;
+        }
+        nav a:hover {
+            color: #ffffff;
+        }
+        nav a.discord-btn {
+            background-color: #5865F2;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 5px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        .box-criar {
+            background-color: #1c1c1c;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 40px;
+        }
+        .box-criar h2 {
+            margin-top: 0;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        input[type="text"], select, textarea {
+            width: 100%;
+            padding: 10px;
+            background-color: #ffffff;
+            color: #000000;
+            border: none;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        textarea {
+            height: 80px;
+            resize: vertical;
+        }
+        .btn-postar {
+            background-color: #5865F2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .topico {
+            background-color: #1c1c1c;
+            border-left: 4px solid #5865F2;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+        .topico h3 {
+            margin: 0 0 5px 0;
+        }
+        .topico small {
+            color: #5865F2;
+        }
+        .topico p {
+            margin: 15px 0;
+        }
+        .topico button {
+            background-color: #2c2c2c;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 8px;
+        }
+        .topico button:hover {
+            background-color: #444;
+        }
+    </style>
 </head>
 <body>
 
@@ -39,16 +120,16 @@
         </nav>
     </header>
 
-    <div class="container" style="max-width: 1000px; margin: 30px auto; padding: 0 20px;">
+    <div class="container">
         
-        <div class="box-criar" id="criar-topico-ancora" style="background-color: #1c1c1c; border-radius: 8px; padding: 20px; margin-bottom: 40px;">
+        <div class="box-criar" id="criar-topico-ancora">
             <h2>Criar tópico</h2>
             
-            <div class="input-group" style="margin-bottom: 15px;">
+            <div class="input-group">
                 <input type="text" id="nome" placeholder="Seu nome">
             </div>
             
-            <div class="input-group" style="margin-bottom: 15px;">
+            <div class="input-group">
                 <select id="categoria">
                     <option value="🎮 Jogos">🎮 Jogos</option>
                     <option value="📢 Anúncios">📢 Anúncios</option>
@@ -56,15 +137,15 @@
                 </select>
             </div>
             
-            <div class="input-group" style="margin-bottom: 15px;">
+            <div class="input-group">
                 <input type="text" id="titulo" placeholder="Título do tópico">
             </div>
             
-            <div class="input-group" style="margin-bottom: 15px;">
+            <div class="input-group">
                 <textarea id="mensagem" placeholder="Mensagem"></textarea>
             </div>
             
-            <button class="btn-postar" onclick="criarTopico()" style="background-color: #5865F2; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">Postar</button>
+            <button class="btn-postar" onclick="criarTopico()">Postar</button>
         </div>
 
         <h2 id="secao-ultimos-topicos">Últimos tópicos</h2>
