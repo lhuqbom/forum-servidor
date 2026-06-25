@@ -1,175 +1,84 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    background-color: #0d0d0d;
-    color: #e0e0e0;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    line-height: 1.6;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #111;
+    color: white;
 }
 
-/* Header mais bonito */
 header {
-    background: linear-gradient(135deg, #1f1f1f, #2a2a2a);
-    padding: 25px 0;
+    background: #222;
+    padding: 20px;
     text-align: center;
-    border-bottom: 4px solid #5865F2;
 }
 
-header h1 {
-    font-size: 2.4rem;
-    margin-bottom: 8px;
-    color: #ffffff;
+nav {
+    background: #333;
+    padding: 10px;
+    text-align: center;
 }
 
-/* Navegação */
 nav a {
-    color: #bbbbbb;
+    color: white;
+    margin: 10px;
     text-decoration: none;
-    margin: 0 16px;
-    font-weight: 500;
-}
-
-nav a:hover {
-    color: #ffffff;
 }
 
 .discord-btn {
-    background-color: #5865F2;
-    color: white !important;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-weight: bold;
-}
-
-/* Container */
-.container {
-    max-width: 1100px;
-    margin: 40px auto;
-    padding: 0 20px;
-}
-
-/* Boxes */
-.box-regras, .box-criar {
-    background-color: #1a1a1a;
-    border-radius: 12px;
-    padding: 25px;
-    margin-bottom: 35px;
-}
-
-.box-regras {
-    border-left: 5px solid #ff4747;
-}
-
-.box-criar {
-    border-left: 5px solid #5865F2;
-}
-
-/* Inputs */
-.input-group {
-    margin-bottom: 18px;
-}
-
-input[type="text"], select, textarea {
-    width: 100%;
-    padding: 14px;
-    background: #252525;
-    color: #ffffff;
-    border: 1px solid #444;
-    border-radius: 8px;
-    font-size: 16px;
-}
-
-textarea {
-    height: 130px;
-    resize: vertical;
-}
-
-.btn-postar {
     background: #5865F2;
-    color: white;
-    border: none;
-    padding: 14px 32px;
-    font-size: 16.5px;
+    padding: 8px 12px;
     border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
 }
 
-.btn-postar:hover {
-    background: #4752c4;
-    transform: translateY(-2px);
+main {
+    padding: 20px;
 }
 
-/* Tópicos - Mais visíveis */
-.topico {
-    background: #1f1f1f;
-    border-radius: 12px;
-    padding: 22px;
+.criar-topico {
+    background: #222;
+    padding: 15px;
+    border-radius: 10px;
     margin-bottom: 20px;
-    border-left: 5px solid #5865F2;
-    transition: all 0.3s;
 }
 
-.topico:hover {
-    background: #252525;
-    transform: translateX(6px);
-    box-shadow: 0 10px 25px rgba(88, 101, 242, 0.2);
+.criar-topico input,
+.criar-topico textarea,
+.criar-topico select {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 5px;
+    border: none;
 }
 
-.topico h3 {
-    color: #ffffff;
-    margin-bottom: 8px;
+.criar-topico button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.topico {
+    background: #222;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 10px;
+    border-left: 4px solid #5865F2;
 }
 
 .topico small {
-    color: #7ba0ff;
-    font-weight: 600;
+    color: #5865F2;
+    font-weight: bold;
 }
 
-.topico p {
-    margin: 16px 0;
-    color: #d0d0d0;
-}
-
-/* Botões */
 .topico button {
-    padding: 9px 18px;
     margin-right: 10px;
-    border: none;
-    border-radius: 6px;
+    margin-top: 10px;
+    padding: 6px 10px;
     cursor: pointer;
-    font-size: 14.5px;
-    transition: 0.2s;
 }
 
-.btn-curtir {
-    background: #3a3a3a;
-    color: #ff6b6b;
-}
-
-.btn-curtir:hover {
-    background: #ff6b6b;
-    color: white;
-}
-
-.btn-apagar {
-    background: #3a3a3a;
-    color: #ff8585;
-}
-
-.btn-apagar:hover {
-    background: #ff4d4d;
-    color: white;
-}
-
-/* Footer */
-.footer {
+footer {
+    background: #222;
     text-align: center;
-    margin-top: 60px;
-    color: #666;
-    font-size: 14px;
+    padding: 15px;
 }
