@@ -4,7 +4,111 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu Fórum</title>
-    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #1a1a1a;
+            text-align: center;
+            padding: 20px 0;
+        }
+        header h1 {
+            margin: 0 0 15px 0;
+        }
+        nav {
+            background-color: #1a1a1a;
+            text-align: center;
+            padding-bottom: 15px;
+        }
+        nav a {
+            color: #8a8a8a;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 14px;
+        }
+        nav a:hover {
+            color: #ffffff;
+        }
+        nav a.discord-btn {
+            background-color: #5865F2;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 5px;
+        }
+        main {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        .criar-topico {
+            background-color: #1c1c1c;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 40px;
+        }
+        .criar-topico h2 {
+            margin-top: 0;
+        }
+        input[type="text"], select, textarea {
+            width: 100%;
+            padding: 10px;
+            background-color: #ffffff;
+            color: #000000;
+            border: none;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        textarea {
+            height: 80px;
+            resize: vertical;
+        }
+        button {
+            background-color: #5865F2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        button:hover {
+            background-color: #4752C4;
+        }
+        .forum {
+            margin-top: 20px;
+        }
+        .topico {
+            background-color: #1c1c1c;
+            border-left: 4px solid #5865F2;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+        .topico h3 {
+            margin: 0 0 5px 0;
+        }
+        .topico small {
+            color: #5865F2;
+        }
+        .topico p {
+            margin: 15px 0;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            color: #8a8a8a;
+        }
+    </style>
 </head>
 <body>
 
@@ -35,7 +139,6 @@
             <option value="💬 Geral">💬 Geral</option>
             <option value="🆘 Ajuda">🆘 Ajuda</option>
         </select>
-
         <br><br>
 
         <input type="text" id="titulo" placeholder="Título do tópico">
@@ -47,14 +150,13 @@
         <button onclick="criarTopico()">Postar</button>
     </section>
 
+    <h2>Últimos tópicos</h2>
     <section class="forum" id="ultimos-topicos">
-        <h2>Últimos tópicos</h2>
 
         <div class="topico">
             <h3>🎮 Jogos - Bem-vindo!</h3>
             <small>Por: Sistema</small>
             <p>Seu fórum está funcionando 🔥</p>
-            <br>
             <button onclick="curtir(this)">❤️ Curtir (0)</button>
             <button onclick="this.parentElement.remove(); salvarPosts()">🗑️ Apagar</button>
         </div>
@@ -67,7 +169,74 @@
     <p>Meu fórum © 2026</p>
 </footer>
 
-<script src="script.js"></script>
+<script>
+function curtir(botao) {
+    let textoBotao = botao.innerText;
+    let match = textoBotao.match(/\d+/);
+    
+    if (match) {
+        let numero = parseInt(match[0]);
+        numero++;
+        botao.innerText = `❤️ Curtir (${numero})`;
+        salvarPosts();
+    }
+}
+
+function criarTopico() {
+    let nome = document.getElementById("nome").value;
+    let categoria = document.getElementById("categoria").value;
+    let titulo = document.getElementById("titulo").value;
+    let mensagem = document.getElementById("mensagem").value;
+    
+    // Validação se os campos estão em branco
+    if (nome.trim() === "" || titulo.trim() === "" || mensagem.trim() === "") {
+        alert("Preencha tudo!");
+        return;
+    }
+    
+    let post = document.createElement("div");
+    post.classList.add("topico");
+    
+    post.innerHTML = `
+        <h3>${categoria} - ${titulo}</h3>
+        <small>Por: ${nome}</small>
+        <p>${mensagem}</p>
+        <button onclick="curtir(this)">❤️ Curtir (0)</button>
+        <button onclick="this.parentElement.remove(); salvarPosts()">🗑️ Apagar</button>
+    `;
+    
+    let forum = document.getElementById("ultimos-topicos");
+    forum.appendChild(post);
+    
+    // Limpa os campos do formulário após postar
+    document.getElementById("nome").value = "";
+    document.getElementById("titulo").value = "";
+    document.getElementById("mensagem").value = "";
+    
+    salvarPosts();
+}
+
+function salvarPosts() {
+    let forum = document.getElementById("ultimos-topicos");
+    if (forum) {
+        localStorage.setItem("meuForumPosts", forum.innerHTML);
+    }
+}
+
+function carregarPosts() {
+    let postsSalvos = localStorage.getItem("meuForumPosts");
+    let forum = document.getElementById("ultimos-topicos");
+    // Se houver posts salvos, substitui o conteúdo da lista pelo que estava guardado
+    if (postsSalvos && forum) {
+        forum.innerHTML = postsSalvos;
+    }
+}
+
+// Carrega tudo quando a página abre
+window.onload = function() {
+    carregarPosts();
+};
+</script>
 
 </body>
 </html>
