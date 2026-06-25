@@ -1,93 +1,25 @@
 body {
-    margin: 0;
-    font-family: Arial;
-    background: #111;
+    background: #1e1e1e;
     color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
 }
 
 header {
-    background: #222;
+    background: #2d2d2d;
     padding: 20px;
     text-align: center;
 }
 
-nav {
+.categoria {
     background: #333;
-    padding: 10px;
-    text-align: center;
-}
-
-nav a {
-    color: white;
-    margin: 10px;
-    text-decoration: none;
-}
-
-.forum {
-    padding: 20px;
-}
-
-.topico {
-    background: #222;
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 10px;
-}
-
-footer {
-    text-align: center;
-    padding: 15px;
-    background: #222;
-}
-
-/* BOTÃO DISCORD */
-.discord-btn {
-    display: inline-block;
-    background: #5865F2;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.discord-btn:hover {
-    background: #4752C4;
-    transform: scale(1.05);
-}
-.criar-topico {
-    background: #222;
-    padding: 15px;
     margin: 20px;
+    padding: 15px;
     border-radius: 10px;
 }
 
-.criar-topico input,
-.criar-topico textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 5px;
-    border: none;
-}
-
-.criar-topico button {
-    margin-top: 10px;
-    padding: 10px 15px;
-    background: #5865F2;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-.criar-topico button:hover {
-    background: #4752C4;
-}
-.topico small {
-    color: #5865F2;
-    font-weight: bold;
+.categoria:hover {
+    background: #444;
 }
 .topico {
     background: #222;
