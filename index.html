@@ -1,112 +1,69 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> RushMc Fórum</title>
+function salvarPosts() {
+    localStorage.setItem(
+        "posts",
+        document.querySelector(".forum").innerHTML
+    );
+}
 
-    <link rel="icon" href="imagerushmc.png">
-    <link rel="stylesheet" href="style.css">
-</head>
+function carregarPosts() {
+    let posts = localStorage.getItem("posts");
 
-<body id="topo">
+    if (posts) {
+        document.querySelector(".forum").innerHTML = posts;
+    }
+}
 
-<header>
-    <h1> 🗡️ RushMC Fórum</h1>
-</header>
+function curtir(botao) {
+    let numero = parseInt(
+        botao.innerText.match(/\d+/)[0]
+    );
 
-<nav>  
+    numero++;
 
-<section class="topico">
-    <h2>📢 Anúncios Oficiais</h2>
+    botao.innerText = `❤️ Curtir (${numero})`;
 
-<p>🔥 Bem-vindo ao RushMC!</p>
-    <p>🔥 Um Servidor de Qualidade e de Muitas Funcionalidades e Minigames!</p>
-    <p>🎉 Novidades e eventos serão anunciados aqui.</p>
-    <p>📋 IP: featured-jul.gl.joinmc.link</p>   
+    salvarPosts();
+}
 
-    </section>
-    <a href="#topo">🏠 Início</a>
-    <a href="#servidor">🗡️ Servidor</a>
-    <a href="#criar">✍️ Criar tópico</a>
-    <a class="skins-btn" href="https://namemc.com/" target="_blank">
-         🧑 skins
-    </a>
+function criarTopico() {
+    let nome = document.getElementById("nome").value;
+    let categoria = document.getElementById("categoria").value;
+    let titulo = document.getElementById("titulo").value;
+    let mensagem = document.getElementById("mensagem").value;
 
-    <a class="loja-btn" href="https://rush.minecart.com.br/shop/4953-vip" target="_blank">
-        🛒 Loja
-    </a>
-        
+    if (!nome || !titulo || !mensagem) {
+        alert("Preencha tudo!");
+        return;
+    }
 
-    <a class="discord-btn" href="https://discord.gg/ZV5S9B4mPf" target="_blank">
-        🗡️ Entrar no Discord
-    </a>
-</nav>
+    let post = document.createElement("div");
 
-<main>
+    post.className = "topico";
 
-    <section id="servidor">
-        <h2>🗡️ Informações do Servidor</h2>
+    post.innerHTML = `
+        <h3>${categoria} - ${titulo}</h3>
+        <small>Por: ${nome}</small>
+        <p>${mensagem}</p>
 
-        <button onclick="navigator.clipboard.writeText('featured-jul.gl.joinmc.link')"> 
-    📋 Copiar IP
-</button>
+        <button onclick="curtir(this)">
+            ❤️ Curtir (0)
+        </button>
 
-        <p><strong>IP:</strong> featured-jul.gl.joinmc.link</p>
-        <p><strong>Versão:</strong> 1.8.9</p>
-        <p><strong>Status:</strong> Online 🟢</p>
-    </section>
+        <button onclick="this.parentElement.remove(); salvarPosts();">
+            🗑️ Apagar
+        </button>
+        <button onclick="this.parentElement.appendChild(this); salvarPosts();">
+            🔄 Responder
+        </button>
+    `;
 
-    <section id="criar" class="criar-topico">
-        <h2>Criar tópico</h2>
+    document.querySelector(".forum").appendChild(post);
 
-        <input type="text" id="nome" placeholder="Seu nome">
+    salvarPosts();
 
-        <select id="categoria">
-            <option value="🟥 Suporte">🟥 Suporte</option>
-            <option value="💬 Geral">💬 Geral</option>
-            <option value="🚨 Denúncias">🚨 Denúncias</option>
-            <option value="💡 Sugestões">💡 Sugestões</option>
-            <option value="🐛 Bugs">🐛 Bugs</option>
-        </select>
+    document.getElementById("nome").value = "";
+    document.getElementById("titulo").value = "";
+    document.getElementById("mensagem").value = "";
+}
 
-        <input type="text" id="titulo" placeholder="Título do tópico">
-
-        <textarea id="mensagem" placeholder="Mensagem"></textarea>
-
-        <textarea id="resposta" placeholder="Resposta (opcional)"></textarea>   
-
-        <button onclick="criarTopico()">Postar</button>
-    </section>
-
-    <section class="forum">
-        <h2>Últimos tópicos</h2>
-
-        <div class="topico">
-            <h3>📢 Bem-vindo ao RushMC!</h3>
-            <small>Por: Administração</small>
-
-            <p>
-                Bem-vindo ao fórum oficial do RushMC! 🔥
-                <br><br>
-
-                🟥 Suporte → Peça ajuda da equipe.<br>
-                🚨 Denúncias → Reporte jogadores.<br>
-                💡 Sugestões → Envie ideias para o servidor.<br>
-                🐛 Bugs → Reporte problemas encontrados.<br>
-                💬 Geral → Converse com a comunidade.
-            </p>
-        </div>
-
-    </section>
-
-</main>
-
-<footer>
-    <p>RushMC Fórum © 2026</p>
-</footer>
-
-<script src="script.js"></script>
-
-</body>
-</html>
+window.onload = carregarPosts;
