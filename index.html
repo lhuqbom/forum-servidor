@@ -2,10 +2,10 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu Fórum</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header>
@@ -24,7 +24,6 @@
 
 <main>
 
-    <!-- CRIAR TÓPICO -->
     <section class="criar-topico">
         <h2>Criar tópico</h2>
 
@@ -40,7 +39,6 @@
         <button onclick="criarTopico()">Postar</button>
     </section>
 
-    <!-- FÓRUM -->
     <section class="forum">
         <h2>Últimos tópicos</h2>
 
@@ -58,54 +56,7 @@
     <p>Meu fórum © 2026</p>
 </footer>
 
-<!-- SCRIPT -->
-<script>
-function salvarPosts() {
-    let forum = document.querySelector(".forum");
-    localStorage.setItem("posts", forum.innerHTML);
-}
-
-function carregarPosts() {
-    let forum = document.querySelector(".forum");
-    let postsSalvos = localStorage.getItem("posts");
-
-    if (postsSalvos) {
-        forum.innerHTML += postsSalvos;
-    }
-}
-
-function criarTopico() {
-    let nome = document.getElementById("nome").value;
-    let titulo = document.getElementById("titulo").value;
-    let mensagem = document.getElementById("mensagem").value;
-
-    if (nome == "" || titulo == "" || mensagem == "") {
-        alert("Preenche tudo!");
-        return;
-    }
-
-    let post = document.createElement("div");
-    post.classList.add("topico");
-
-    post.innerHTML = `
-        <h3>${titulo}</h3>
-        <small>Por: ${nome}</small>
-        <p>${mensagem}</p>
-    `;
-
-    document.querySelector(".forum").appendChild(post);
-
-    document.getElementById("nome").value = "";
-    document.getElementById("titulo").value = "";
-    document.getElementById("mensagem").value = "";
-
-    salvarPosts();
-}
-
-window.onload = function() {
-    carregarPosts();
-}
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
