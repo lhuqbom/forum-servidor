@@ -1,82 +1,58 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Fórum</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        /* Estilos baseados nas suas fotos */
-        html {
-            scroll-behavior: smooth;
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Fórum AI</title>
+    <title>🎮 Meu Fórum</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <h1>🔥 Meu Fórum AI</h1>
-        <nav>
-            <a href="#regras-forum">Regras</a>
-            <a href="#secao-ultimos-topicos">Tópicos</a>
-            <a href="#criar-topico-ancora">Criar Tópico</a>
-            <a href="https://discord.gg/ZV5S9B4mPf" target="_blank" class="discord-btn">🎮 Discord</a>
-        </nav>
-    </header>
+<header>
+    <h1>🎮 Meu Fórum</h1>
+</header>
 
-    <div class="container">
-        
-        <!-- Regras -->
-        <div class="box-regras" id="regras-forum">
-            <h2>📜 Regras do Fórum</h2>
-            <ul>
-                <li>Respeite todos os membros</li>
-                <li>Não faça spam</li>
-                <li>Mantenha os tópicos na categoria certa</li>
-                <li>Conteúdo NSFW só em tópicos específicos</li>
-            </ul>
-        </div>
+<nav>
+    <a href="#">Início</a>
+    <a href="#">Categorias</a>
+    <a href="#">Criar tópico</a>
 
-        <!-- Formulário de criação -->
-        <div class="box-criar" id="criar-topico-ancora">
-            <h2>✍️ Criar Novo Tópico</h2>
-            
-            <div class="input-group">
-                <input type="text" id="nome" placeholder="Seu nome ou nickname">
-            </div>
-            
-            <div class="input-group">
-                <select id="categoria">
-                    <option value="🎮 Jogos">🎮 Jogos</option>
-                    <option value="📢 Anúncios">📢 Anúncios</option>
-                    <option value="💬 Dúvidas">💬 Dúvidas</option>
-                    <option value="🤖 IA & Tech">🤖 IA & Tech</option>
-                </select>
-            </div>
-            
-            <div class="input-group">
-                <input type="text" id="titulo" placeholder="Título do tópico">
-            </div>
-            
-            <div class="input-group">
-                <textarea id="mensagem" placeholder="Escreva sua mensagem..."></textarea>
-            </div>
-            
-            <button class="btn-postar" onclick="criarTopico()">🚀 Postar Tópico</button>
-        </div>
+    <a class="discord-btn" href="https://discord.gg/ZV5S9B4mPf" target="_blank">
+        🎮 Entrar no Discord
+    </a>
+</nav>
 
-        <h2 id="secao-ultimos-topicos">📌 Últimos Tópicos</h2>
-        
-        <div class="forum" id="forum"></div>
+<main>
 
-        <p class="footer">Meu Fórum AI © 2026 - Feito com ❤️</p>
-    </div>
+<section class="criar-topico">
+    <h2>Criar tópico</h2>
 
-    <script src="script.js"></script>
+    <input type="text" id="nome" placeholder="Seu nome">
+
+    <select id="categoria">
+        <option value="🎮 Jogos">🎮 Jogos</option>
+        <option value="💬 Geral">💬 Geral</option>
+        <option value="🆘 Ajuda">🆘 Ajuda</option>
+    </select>
+
+    <input type="text" id="titulo" placeholder="Título do tópico">
+
+    <textarea id="mensagem" placeholder="Mensagem"></textarea>
+
+    <button onclick="criarTopico()">Postar</button>
+</section>
+
+<section class="forum">
+    <h2>Últimos tópicos</h2>
+</section>
+
+</main>
+
+<footer>
+    <p>Meu fórum © 2026</p>
+</footer>
+
+<script src="script.js"></script>
+
 </body>
 </html>
