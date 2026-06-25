@@ -5,7 +5,71 @@
     <title>Meu Fórum</title>
     <link rel="stylesheet" href="style.css">
 </head>
-    <script>
+
+<body>
+
+<header>
+    <h1>Meu Fórum</h1>
+</header>
+
+<nav>
+    <a href="#">Início</a>
+    <a href="#">Categorias</a>
+    <a href="#">Criar tópico</a>
+
+    <a class="discord-btn" href="https://discord.gg/ZV5S9B4mPf" target="_blank">
+        🎮 Entrar no Discord
+    </a>
+</nav>
+
+<main>
+
+    <!-- CRIAR TÓPICO -->
+    <section class="criar-topico">
+        <h2>Criar tópico</h2>
+
+        <input type="text" id="titulo" placeholder="Título do tópico">
+        <br><br>
+
+        <textarea id="mensagem" placeholder="Mensagem"></textarea>
+        <br><br>
+
+        <button onclick="criarTopico()">Postar</button>
+    </section>
+
+    <!-- FÓRUM -->
+    <section class="forum">
+        <h2>Últimos tópicos</h2>
+
+        <div class="topico">
+            <h3>Bem-vindo!</h3>
+            <p>Seu fórum está funcionando 🔥</p>
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    <p>Meu fórum © 2026</p>
+</footer>
+
+<!-- SCRIPT -->
+<script>
+function salvarPosts() {
+    let forum = document.querySelector(".forum");
+    localStorage.setItem("posts", forum.innerHTML);
+}
+
+function carregarPosts() {
+    let forum = document.querySelector(".forum");
+    let postsSalvos = localStorage.getItem("posts");
+
+    if (postsSalvos) {
+        forum.innerHTML += postsSalvos;
+    }
+}
+
 function criarTopico() {
     let titulo = document.getElementById("titulo").value;
     let mensagem = document.getElementById("mensagem").value;
@@ -27,54 +91,14 @@ function criarTopico() {
 
     document.getElementById("titulo").value = "";
     document.getElementById("mensagem").value = "";
+
+    salvarPosts();
+}
+
+window.onload = function() {
+    carregarPosts();
 }
 </script>
-
-<body>
-    
-<header>
-    <h1>Meu Fórum</h1>
-</header>
-
-<nav>
-    <a href="#">Início</a>
-    <a href="#">Categorias</a>
-    <a href="#">Criar tópico</a>
-
-    <!-- BOTÃO DISCORD -->
-    <a class="discord-btn" href="https://discord.gg/ZV5S9B4mPf" target="_blank">
-        🎮 Entrar no Discord
-    </a>
-</nav>
-
-<main>
-
-    <section class="forum">
-        <h2>Últimos tópicos</h2>
-
-        <div class="topico">
-            <h3>Título do tópico</h3>
-            <p>Mensagem do usuário aqui...</p>
-        </div>
-
-    </section>
-    <section class="criar-topico">
-    <h2>Criar tópico</h2>
-
-    <input type="text" id="titulo" placeholder="Título do tópico">
-    <br><br>
-
-    <textarea id="mensagem" placeholder="Mensagem"></textarea>
-    <br><br>
-
-    <button onclick="criarTopico()">Postar</button>
-</section>
-
-</main>
-
-<footer>
-    <p>Meu fórum © 2026</p>
-</footer>
 
 </body>
 </html>
