@@ -56,3 +56,32 @@ footer {
     background: #4752C4;
     transform: scale(1.05);
 }
+.criar-topico {
+    background: #222;
+    padding: 15px;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.criar-topico input,
+.criar-topico textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: none;
+}
+
+.criar-topico button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background: #5865F2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.criar-topico button:hover {
+    background: #4752C4;
+}
