@@ -1,1 +1,23 @@
-C:\Users\soluc\Desktop\forum\FURUMDOSERVIDOR\style.css
+body {
+    background: #1e1e1e;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+header {
+    background: #2d2d2d;
+    padding: 20px;
+    text-align: center;
+}
+
+.categoria {
+    background: #333;
+    margin: 20px;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.categoria:hover {
+    background: #444;
+}
