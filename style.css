@@ -85,3 +85,7 @@ footer {
 .criar-topico button:hover {
     background: #4752C4;
 }
+.topico small {
+    color: #5865F2;
+    font-weight: bold;
+}
