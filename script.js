@@ -52,6 +52,9 @@ function criarTopico() {
         <button onclick="this.parentElement.remove(); salvarPosts();">
             🗑️ Apagar
         </button>
+        <button onclick="this.parentElement.appendChild(this); salvarPosts();">
+            🔄 Motivo
+        </button>
     `;
 
     document.querySelector(".forum").appendChild(post);
