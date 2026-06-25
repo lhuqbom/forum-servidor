@@ -26,9 +26,10 @@
 
     <!-- CRIAR TÓPICO -->
     <section class="criar-topico">
-        <input type="text" id="nome" placeholder="Seu nome">
-<br><br>
         <h2>Criar tópico</h2>
+
+        <input type="text" id="nome" placeholder="Seu nome">
+        <br><br>
 
         <input type="text" id="titulo" placeholder="Título do tópico">
         <br><br>
@@ -45,6 +46,7 @@
 
         <div class="topico">
             <h3>Bem-vindo!</h3>
+            <small>Por: Sistema</small>
             <p>Seu fórum está funcionando 🔥</p>
         </div>
 
@@ -73,10 +75,11 @@ function carregarPosts() {
 }
 
 function criarTopico() {
+    let nome = document.getElementById("nome").value;
     let titulo = document.getElementById("titulo").value;
     let mensagem = document.getElementById("mensagem").value;
 
-    if (titulo == "" || mensagem == "") {
+    if (nome == "" || titulo == "" || mensagem == "") {
         alert("Preenche tudo!");
         return;
     }
@@ -86,11 +89,13 @@ function criarTopico() {
 
     post.innerHTML = `
         <h3>${titulo}</h3>
+        <small>Por: ${nome}</small>
         <p>${mensagem}</p>
     `;
 
     document.querySelector(".forum").appendChild(post);
 
+    document.getElementById("nome").value = "";
     document.getElementById("titulo").value = "";
     document.getElementById("mensagem").value = "";
 
