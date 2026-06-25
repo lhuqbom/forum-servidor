@@ -1,156 +1,73 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu Fórum</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* Estilos básicos caso você queira testar direto (baseado nas suas fotos) */
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            background-color: #121212;
-            color: #ffffff;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #1a1a1a;
-            text-align: center;
-            padding: 20px 0;
-        }
-        header h1 {
-            margin: 0 0 15px 0;
-        }
-        nav a {
-            color: #8a8a8a;
-            text-decoration: none;
-            margin: 0 10px;
-            font-size: 14px;
-        }
-        nav a:hover {
-            color: #ffffff;
-        }
-        nav a.discord-btn {
-            background-color: #5865F2;
-            color: white;
-            padding: 8px 16px;
-            border-radius: 5px;
-        }
-        .container {
-            max-width: 1000px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-        .box-criar {
-            background-color: #1c1c1c;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 40px;
-        }
-        .box-criar h2 {
-            margin-top: 0;
-        }
-        .input-group {
-            margin-bottom: 15px;
-        }
-        input[type="text"], select, textarea {
-            width: 100%;
-            padding: 10px;
-            background-color: #ffffff;
-            color: #000000;
-            border: none;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-        textarea {
-            height: 80px;
-            resize: vertical;
-        }
-        .btn-postar {
-            background-color: #5865F2;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        /* Estilo do Topico Criado igual ao seu print */
-        .topico {
-            background-color: #1c1c1c;
-            border-left: 4px solid #5865F2;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 15px;
-        }
-        .topico h3 {
-            margin: 0 0 5px 0;
-        }
-        .topico small {
-            color: #5865F2;
-        }
-        .topico p {
-            margin: 15px 0 0 0;
-        }
-    </style>
 </head>
 <body>
 
-    <header id="topo">
-        <h1>Meu Fórum</h1>
-        <nav>
-            <a href="#topo">Início</a>
-            <a href="#categorias">Categorias</a>
-            <a href="#criar-topico-ancora">Criar tópico</a>
-            <a href="https://discord.gg/seu-link" target="_blank" class="discord-btn">🎮 Entrar no Discord</a>
-        </nav>
-    </header>
+<header id="topo">
+    <h1>Meu Fórum</h1>
+</header>
 
-    <div class="container">
-        
-        <div class="box-criar" id="criar-topico-ancora">
-            <h2>Criar tópico</h2>
-            
-            <div class="input-group">
-                <input type="text" id="nome" placeholder="Seu nome">
-            </div>
-            
-            <div class="input-group">
-                <select id="categoria">
-                    <option value="🎮 Jogos">🎮 Ajuda</option>
-                    <option value="📢 Anúncios">📢 Anúncios</option>
-                    <option value="💬 Dúvidas">💬 Dúvidas</option>
-                </select>
-            </div>
-            
-            <div class="input-group">
-                <input type="text" id="titulo" placeholder="Título do tópico">
-            </div>
-            
-            <div class="input-group">
-                <textarea id="mensagem" placeholder="Mensagem"></textarea>
-            </div>
-            
-            <button class="btn-postar" onclick="criarTopic()">Postar</button>
-        </div>
+<nav>
+    <a href="#topo">Início</a>
+    <a href="#ultimos-topicos">Categorias</a>
+    <a href="#criar-topico-secao">Criar tópico</a>
 
+    <a class="discord-btn" href="https://discord.gg/ZV5S9B4mPf" target="_blank">
+        🎮 Entrar no Discord
+    </a>
+</nav>
+
+<main>
+
+    <section class="criar-topico" id="criar-topico-secao">
+        <h2>Criar tópico</h2>
+
+        <input type="text" id="nome" placeholder="Seu nome">
+        <br><br>
+
+        <select id="categoria">
+            <option value="🎮 Jogos">🎮 Jogos</option>
+            <option value="💬 Geral">💬 Geral</option>
+            <option value="🆘 Ajuda">🆘 Ajuda</option>
+        </select>
+
+        <br><br>
+
+        <input type="text" id="titulo" placeholder="Título do tópico">
+        <br><br>
+
+        <textarea id="mensagem" placeholder="Mensagem"></textarea>
+        <br><br>
+
+        <button onclick="criarTopico()">Postar</button>
+    </section>
+
+    <section class="forum" id="ultimos-topicos">
         <h2>Últimos tópicos</h2>
-        <div class="forum" id="categorias">
-            
-            <div class="topico">
-                <h3>🎮 Jogos - Bem-vindo!</h3>
-                <small>Por: Sistema</small>
-                <p>Seu fórum está funcionando 🔥</p>
-            </div>
 
+        <div class="topico">
+            <h3>🎮 Jogos - Bem-vindo!</h3>
+            <small>Por: Sistema</small>
+            <p>Seu fórum está funcionando 🔥</p>
+            <br>
+            <button onclick="curtir(this)">❤️ Curtir (0)</button>
+            <button onclick="this.parentElement.remove(); salvarPosts()">🗑️ Apagar</button>
         </div>
 
-        <p style="margin-top: 40px; font-size: 12px; color: #8a8a8a;">Meu fórum &copy; 2026</p>
-    </div>
+    </section>
 
-    <script src="script.js"></script>
+</main>
+
+<footer>
+    <p>Meu fórum © 2026</p>
+</footer>
+
+<script src="script.js"></script>
+
 </body>
 </html>
