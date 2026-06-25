@@ -6,8 +6,31 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body><script>
+function criarTopico() {
+    let titulo = document.getElementById("titulo").value;
+    let mensagem = document.getElementById("mensagem").value;
 
+    if (titulo == "" || mensagem == "") {
+        alert("Preenche tudo!");
+        return;
+    }
+
+    let post = document.createElement("div");
+    post.classList.add("topico");
+
+    post.innerHTML = `
+        <h3>${titulo}</h3>
+        <p>${mensagem}</p>
+    `;
+
+    document.querySelector(".forum").appendChild(post);
+
+    document.getElementById("titulo").value = "";
+    document.getElementById("mensagem").value = "";
+}
+</script>
+    
 <header>
     <h1>Meu Fórum</h1>
 </header>
