@@ -3,45 +3,213 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RushMC Fórum - Torneio</title>
+    <title>RushMC - Torneio Oficial</title>
     <style>
-        /* Cores baseadas no estilo do seu site */
+        /* Configurações Gerais de Página */
+        * {
+            box-sizing: border-box;
+        }
+        
         body {
-            background-color: #121212;
-            color: #ffffff;
-            font-family: Arial, sans-serif;
+            background-color: #0d0d0d; /* Fundo totalmente preto/escuro */
+            color: #e0e0e0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            padding: 20px;
+            padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
+            min-height: 100vh;
         }
 
+        /* Topo / Cabeçalho */
         header {
-            margin-bottom: 20px;
+            width: 100%;
+            background-color: #141414;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #222222;
         }
 
-        h1 {
-            font-size: 24px;
+        header h1 {
+            margin: 0;
+            font-size: 26px;
+            color: #ffffff;
+            letter-spacing: 1px;
+        }
+
+        header span {
+            color: #ffaa00; /* Destaque no nome */
         }
 
         /* Menu de Navegação */
         nav {
-            background-color: #1e1e1e;
-            padding: 10px 20px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            display: flex;
-            gap: 15px;
+            margin: 25px 0;
         }
 
-        nav a {
-            color: #aaaaaa;
+        .btn-voltar {
+            background-color: #1a1a1a;
+            color: #ffffff;
             text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 6px;
             font-weight: bold;
             font-size: 14px;
+            border: 1px solid #333333;
+            transition: all 0.3s ease;
         }
 
-        nav a:hover {
+        .btn-voltar:hover {
+            background-color: #ffaa00;
+            color: #000000;
+            border-color: #ffaa00;
+        }
+
+        /* Container Principal do Conteúdo */
+        .container {
+            max-width: 750px;
+            width: 90%;
+            background-color: #141414;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+            border: 1px solid #1f1f1f;
+        }
+
+        .titulo-torneio {
+            text-align: center;
+            margin-top: 0;
+            font-size: 28px;
+            color: #ffffff;
+            text-transform: uppercase;
+            border-bottom: 2px solid #ffaa00;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+        }
+
+        /* Cards / Caixas de Informação */
+        .card {
+            background-color: #1a1a1a;
+            border-left: 4px solid #ffaa00; /* Barra amarela de destaque */
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-top: 1px solid #252525;
+            border-right: 1px solid #252525;
+            border-bottom: 1px solid #252525;
+        }
+
+        /* Mudar a cor da barra lateral para o card do Discord/Inscrição */
+        .card.discord {
+            border-left-color: #5865F2; 
+        }
+
+        .card h2 {
+            margin-top: 0;
+            font-size: 18px;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card p {
+            margin: 10px 0 0 0;
+            color: #aaaaaa;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* Listas de Regras e Prêmios */
+        .card ul {
+            margin: 10px 0 0 0;
+            padding-left: 20px;
+            color: #aaaaaa;
+            font-size: 15px;
+        }
+
+        .card li {
+            margin-bottom: 8px;
+        }
+
+        .card strong {
             color: #ffffff;
         }
+
+        /* Botão de Inscrição */
+        .btn-inscricao {
+            display: block;
+            background-color: #5865F2; /* Cor do Discord */
+            color: #ffffff;
+            text-align: center;
+            text-decoration: none;
+            padding: 14px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 16px;
+            margin-top: 20px;
+            transition: background 0.2s ease;
+        }
+
+        .btn-inscricao:hover {
+            background-color: #4752c4;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>⚔️ Fórum <span>RushMC</span></h1>
+    </header>
+
+    <nav>
+        <a href="index.html" class="btn-voltar">🏠 Voltar ao Início</a>
+    </nav>
+
+    <div class="container">
+        <h1 class="titulo-torneio">🏆 Torneio Oficial de Minecraft</h1>
+        
+        <div class="card">
+            <h2>🚀 Sobre o Evento</h2>
+            <p>Preparem suas espadas! O RushMC está organizando o maior campeonato da temporada. Este evento foi feito para descobrir quem são os jogadores mais habilidosos do servidor em combates épicos 1v1. As vagas são limitadas, então garanta já a sua participação!</p>
+        </div>
+
+        <div class="card">
+            <h2>📅 Informações Gerais</h2>
+            <ul>
+                <li><strong>Versão do jogo:</strong> 1.8.9 (Recomendada)</li>
+                <li><strong>Data de início:</strong> Em breve (Fique atento aos avisos)</li>
+                <li><strong>Modo de Jogo:</strong> Arena PvP / Eliminação Direta</li>
+                <li><strong>Sistema:</strong> Quem perder está fora, quem vencer avança na tabela!</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>📜 Regras do Campeonato</h2>
+            <ul>
+                <li>❌ É estritamente proibido o uso de <strong>Hacks, Clients Alternativos ou Macros</strong>. Todos os jogadores serão telados pela Staff.</li>
+                <li>❌ Ofensas ou toxicidade no chat resultarão em desclassificação imediata.</li>
+                <li>⏱️ Compareça com pelo menos 10 minutos de antecedência. Atrasos gerarão derrota por W.O.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>🎁 Premiações Épicas</h2>
+            <ul>
+                <li>🥇 <strong>1º Lugar:</strong> TAG VIP Exclusiva + Kit Especial no Servidor + Cargo no Discord.</li>
+                <li>🥈 <strong>2º Lugar:</strong> Chaves de Caixas Raras (Keys) + Moedas do jogo.</li>
+                <li>🥉 <strong>3º Lugar:</strong> Medalha de participação + Bônus de XP.</li>
+            </ul>
+        </div>
+
+        <div class="card discord">
+            <h2>📝 Como se Inscrever?</h2>
+            <p>Para garantir a sua vaga na tabela, clique no botão abaixo para entrar no nosso canal oficial do Discord e registrar o seu Nick na aba <strong>#inscricao-torneio</strong>.</p>
+            
+            <a href="#" class="btn-inscricao">Entrar no Discord para Inscrever-se</a>
+        </div>
+    </div>
+
+</body>
+</html>
