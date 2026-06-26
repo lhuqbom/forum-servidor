@@ -46,6 +46,28 @@ nav {
     background: #16a34a;
 }
 
+/* 🔥 BANNER DA IMAGEM */
+.banner {
+    width: 90%;
+    max-width: 850px;
+    margin-bottom: 20px;
+    border: 2px solid #22c55e;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: 0.3s;
+}
+
+.banner img:hover {
+    transform: scale(1.02);
+}
+
+/* CONTAINER */
 .container {
     width: 90%;
     max-width: 850px;
